@@ -10,5 +10,5 @@ services:
   mailcatcher:
     image: instructure/mailcatcher
     environment:
-      VIRTUAL_HOST: mail.canvas.docker
+      VIRTUAL_HOST: mail.canvas.endeavour.cs.vt.edu
       VIRTUAL_PORT: 8080

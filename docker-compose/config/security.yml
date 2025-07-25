@@ -1,6 +1,7 @@
 production: &default
-  encryption_key: <%= ENV["ENCRYPTION_KEY"] %>
-  lti_iss: 'https://canvas.instructure.com'
+  # encryption_key: <%= ENV["ENCRYPTION_KEY"] %>
+  encryption_key: 'facdd3a131ddd8988b14f6e4e01039c93cfa0160'
+  lti_iss: 'https://canvas.endeavour.cs.vt.edu'
 
 development:
   <<: *default

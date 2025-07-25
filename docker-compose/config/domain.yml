@@ -1,8 +1,8 @@
 production:
-  domain: "canvas.docker"
+  domain: "canvas.endeavour.cs.vt.edu"
 
 test:
   domain: localhost
 
 development:
-  domain: "canvas.docker"
+  domain: "canvas.endeavour.cs.vt.edu"

@@ -12,7 +12,7 @@ services:
     ports:
       - "3000:80"
     environment:
-      VIRTUAL_HOST: rce.canvas.docker
+      VIRTUAL_HOST: canvas.endeavour.cs.vt.edu
       VIRTUAL_PORT: 80
       HTTP_PROTOCOL_OVERRIDE: "http"
       PASSENGER_MIN_INSTANCES: 2

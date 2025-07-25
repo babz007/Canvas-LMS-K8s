@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: security-config
+  namespace: localcanvasdev
+data:
+  security.yml: |
+    secret_key_base: <%= ENV['SECRET_KEY_BASE'] %>
+    encryption_key: <%= ENV.fetch('ENCRYPTION_KEY', 'default_encryption_key') %>

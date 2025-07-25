@@ -1,8 +1,10 @@
 production: &production
   address: mailcatcher
   port: 1025
-  domain: canvas.docker
-  outgoing_address: canvas@canvas.docker
+  enable_starttls_auto: false # Disable TLS
+  ssl: true # Enable SSL
+  domain: canvas.endeavour.cs.vt.edu
+  outgoing_address: canvas@canvas.endeavour.cs.vt.edu
   default_name: Instructure Canvas
 
 development:

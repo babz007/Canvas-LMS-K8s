@@ -1,4 +1,4 @@
-<%= generation_message %>
+# <%= generation_message %>
 ARG RUBY=3.1
 
 FROM instructure/ruby:$RUBY

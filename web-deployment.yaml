@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: canvas-web
+  labels:
+    app: canvas-web
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: canvas-web
+  template:
+    metadata:
+      labels:
+        app: canvas-web
+    spec:
+      containers:
+      - name: canvas-web
+        image: ainababs0/web
+        args:
+          - bundle
+          - exec
+          - puma
+          - -C
+          - config/puma.rb
+        env:
+          - name: RAILS_ENV
+            value: "production"
+          - name: POSTGRES_PASSWORD
+            value: sekret
+          - name: CANVAS_DATABASE_HOST
+            value: postgres
+          - name: ENCRYPTION_KEY
+            valueFrom:
+              configMapKeyRef:
+                name: security-config
+                key: encryption_key
+        ports:
+        - containerPort: 3000
+      restartPolicy: Always

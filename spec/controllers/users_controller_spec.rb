@@ -1118,13 +1118,13 @@ describe UsersController do
       subject.instance_variable_set(:@domain_root_account, Account.default)
 
       subject.request = ActionController::TestRequest.create(subject.class)
-      subject.request.host = "canvas.docker"
+      subject.request.host = "canvas.endeavour.cs.vt.edu"
 
       WebMock.stub_request(:post, "https://www.google.com/recaptcha/api/siteverify")
              .with(
                body: { "secret" => "test-token", "response" => "valid-submit-key" }
              )
-             .to_return(status: 200, body: { success: true, challenge_ts: Time.zone.now.to_s, hostname: "canvas.docker" }.to_json)
+             .to_return(status: 200, body: { success: true, challenge_ts: Time.zone.now.to_s, hostname: "canvas.endeavour.cs.vt.edu" }.to_json)
 
       WebMock.stub_request(:post, "https://www.google.com/recaptcha/api/siteverify")
              .with(
@@ -1133,7 +1133,7 @@ describe UsersController do
              .to_return(status: 200, body: {
                :success => false,
                :challenge_ts => Time.zone.now.to_s,
-               :hostname => "canvas.docker",
+               :hostname => "canvas.endeavour.cs.vt.edu",
                "error-codes" => ["invalid-input-response"]
              }.to_json)
 
@@ -1144,7 +1144,7 @@ describe UsersController do
              .to_return(status: 200, body: {
                :success => false,
                :challenge_ts => Time.zone.now.to_s,
-               :hostname => "canvas.docker",
+               :hostname => "canvas.endeavour.cs.vt.edu",
                "error-codes" => ["missing-input-response"]
              }.to_json)
       # Fallback for any dynamicsettings call that isn't mocked below

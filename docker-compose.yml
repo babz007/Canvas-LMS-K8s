@@ -1,4 +1,3 @@
-# See doc/docker/README.md or https://github.com/instructure/canvas-lms/tree/master/doc/docker
 version: '2.3'
 services:
   web: &WEB
@@ -9,10 +8,18 @@ services:
       - redis
     environment:
       POSTGRES_PASSWORD: sekret
+      ENCRYPTION_KEY: facdd3a131ddd8988b14f6e4e01039c93cfa0160 
 
   jobs:
     <<: *WEB
     command: bundle exec script/delayed_job run
+    volumes:
+      - ./docker-compose/config/database.yml:/usr/src/app/config/database.yml  # Optional: Mount to override
+      - ./docker-compose/config/delayed_jobs.yml:/usr/src/app/config/delayed_jobs.yml  # Optional: Mount to override
+      - ./docker-compose/config/security.yml:/usr/src/app/config/security.yml
+    environment:
+      POSTGRES_PASSWORD: sekret
+      ENCRYPTION_KEY: facdd3a131ddd8988b14f6e4e01039c93cfa0160
 
   postgres:
     build: ./docker-compose/postgres
@@ -21,3 +28,31 @@ services:
 
   redis:
     image: redis:alpine
+
+
+
+# original dockr compose from Canvas repo
+
+# # See doc/docker/README.md or https://github.com/instructure/canvas-lms/tree/master/doc/docker
+# version: '2.3'
+# services:
+#   web: &WEB
+#     build:
+#       context: .
+#     links:
+#       - postgres
+#       - redis
+#     environment:
+#       POSTGRES_PASSWORD: sekret
+
+#   jobs:
+#     <<: *WEB
+#     command: bundle exec script/delayed_job run
+
+#   postgres:
+#     build: ./docker-compose/postgres
+#     environment:
+#       POSTGRES_PASSWORD: sekret
+
+#   redis:
+#     image: redis:alpine

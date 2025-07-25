@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: jobs
+  namespace: localcanvasdev
+  labels:
+    io.kompose.service: jobs
+spec:
+  selector:
+    io.kompose.service: jobs
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000  # Adjust 
+  type: ClusterIP

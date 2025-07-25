@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.33.0 (HEAD)
+  labels:
+    io.kompose.service: jobs
+  name: jobs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: jobs
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.33.0 (HEAD)
+      labels:
+        io.kompose.network/canvas-default: "true"
+        io.kompose.service: jobs
+    spec:
+      containers:
+        - args:
+            - bundle
+            - exec
+            - script/delayed_job
+            - run
+          env:
+            - name: POSTGRES_PASSWORD
+              value: sekret
+            - name: CANVAS_DATABASE_HOST
+              value: postgres
+          image: ainababs0/jobs
+          name: jobs
+      restartPolicy: Always

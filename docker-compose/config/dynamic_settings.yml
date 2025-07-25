@@ -4,7 +4,7 @@
 # it whenever a call for consul data is issued. Data should be
 # shaped like the example below, one key for the related set of data,
 # and a hash of key/value pairs (no nesting)
-development:
+production:
   # tree
   config:
     # service
@@ -27,7 +27,7 @@ development:
         use_for_svg: 'false'
         use_for_mml: 'false'
       rich-content-service:
-        app-host: 'http://rce.canvas.docker:3000'
+        app-host: 'http://canvas.endeavour.cs.vt.edu'
     # another service
     pandata:
       ios-pandata-key: IOS_pandata_key

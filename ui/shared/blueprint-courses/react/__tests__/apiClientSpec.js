@@ -32,7 +32,7 @@ const mockAxiosClient = (method, res) => {
   return sandbox.stub(axios, method).returns(res)
 }
 
-const mockBaseDomain = 'http://canvas.docker'
+const mockBaseDomain = 'http://canvas.endeavour.cs.vt.edu'
 const accountParams = {accountId: 1}
 const getCourseParams = {
   search: 'foo',
