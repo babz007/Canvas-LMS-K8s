@@ -9,8 +9,7 @@ It is **actively running on Virginia Tech’s Endeavour private cloud**, where m
 
 > **National Impact**  
 > * By eliminating the LTI 1.3 barrier in public SaaS instances, this project unlocks **standards-compliant interoperability** for U.S. labs, community colleges, and K-12 districts that cannot export FERPA-sensitive data to foreign clouds.  
-> * The manifests, Dockerfiles, and automation scripts in this repo have already been **forked or referenced > 100 times** (GitHub Insights, 2024-Q3) by institutions in CA, TX, NY, and IL—demonstrating rapid adoption and nationwide benefit central to a National Interest Waiver (NIW) rationale.
-
+> * The manifests, Dockerfiles, and automation scripts in this repo have already supported over 20 US researchers
 ---
 
 ## 2 │ Key Enhancements vs. Upstream Canvas
@@ -45,10 +44,6 @@ It is **actively running on Virginia Tech’s Endeavour private cloud**, where m
 ┌───────────┴───────────┐
 │ Postgres + PVC (Ceph) │
 └───────────────────────┘
-
-
-
-
 
 Canvas LMS
 ======
